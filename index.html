@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1a804c7335.js" crossorigin="anonymous"></script>
+    <title>My Favorite Podcast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body,
+        html{
+            height: 100%;
+            margin: 0%;
+            padding: 0%;
+            font-family: "Roboto" , sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            
+	background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(58,9,121,1) 35%, rgba(0,212,255,1) 100%);
+        }
+        header{
+            background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/153/original/zamineh.jpg?1730446628');
+        }
+        span a {
+            font-size: 18px;
+            color: #cccccc;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.4s ease-in-out;
+            &:hover{
+                color: #ffffff;
+            }
+        }
+        @keyframes float{
+            0%{
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                transform: translateY(0px);
+            }
+            50%{
+                box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+                transform: translateY(-20px);
+            }
+            100%{
+                box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+                transform: translateY(0px);
+            }
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .avatar{
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border: 5px white solid;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+            transform: translateY(0px);
+            animation: float 6s ease-in-out infinite;
+            margin-top: 60px;
+        }
+        .why{
+            text-align: center;
+            font-family: "Roboto" , sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .why-1{
+            color: whitesmoke;
+        }
+        .why-2{
+            color: skyblue;
+        }
+        .the{
+            text-align: center;
+            margin: 0;
+            color: whitesmoke;
+            font-family: "Roboto" , sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .matn{
+            margin-top: 12px;
+            margin-right: 4px;
+            text-align: center;
+            color: white;
+            
+        }
+        strong{
+            color: #e0e781;
+        }
+        .yek{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .yek:nth-child(1){
+            color: #e0ffff;
+        }
+        .yek:nth-child(2){
+            color: #42455a;
+            background: #e0ffff;
+        }
+        .yek:nth-child(3){
+            color: #e0ffff;
+        }
+        .yek:nth-child(4){
+            color: #42455a;
+            background: #e0ffff;
+        }
+        .yek.box{
+            margin: 100px;
+        }
+        .yek.text-box{
+            display: flex;
+        }
+        .yek.text-box{
+            margin: 20px;
+            padding: 20px;
+            background: #00c2cb;
+        }
+        .yek.text-box h3 {
+            font-size: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        @media (max-width:600px){
+            section h1{
+                font-size: 2rem;
+                text-align: center;
+            }
+            .yek.text-box{
+                flex-direction: column;
+            }
+        }
+        .reveal.active{
+            opacity: 1;
+        }
+        .active.fade-bottom{
+            animation: fade-bottom 1s ease-in;
+        }
+        .active.fade-left{
+            animation: fade-left 1s ease-in;
+
+        }
+        .active.fade-right{
+            animation: fade-right 1s ease-in;
+        }
+        @keyframes fade-bottom{
+            0%{
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fade-right{
+            0%{
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        .mahi{
+            display: block;
+            margin-top: none;
+        }
+        @media(max-width:900px){
+            .the{
+                font-size: 36px;
+            }
+            .why-1{
+                font-size: 60px;
+            }
+            .why-2{
+                font-size: 60px;
+            }
+            
+            
+            .shod{
+                font-size: 26px;
+            }
+            .seed{
+                font-size: 20px;
+            }
+            .esm{
+                font-size: 26px;
+            }
+        }
+        .mah{
+            
+            box-shadow: 20px 20px 50px 15px #313034;
+            border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  
+  display: block;
+        }
+        .big{
+            font-size: 30px;
+        }
+        .boxi-1{
+            color: white;
+            font-size: 20px;
+            padding-left: 4px;
+        }
+        .boxi{
+            border: 2px solid dimgray;
+            background-image: linear-gradient(to right, #283048 0%, #859398 51%, #283048 100%);
+            border-left: 4px solid dimgray;
+        }
+        .tir{
+        color: white;
+        font-size: 20px;
+    }
+    p{
+        color: white;
+        margin-left: 8px;
+        margin-top: 9px;
+        padding-top: 6px;
+        text-align: center;
+    }
+    .btn-grad{
+        background-image: linear-gradient(to right, #283048 0%, #859398 51%, #283048 100%);
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: o o 20px #eee;
+        border-radius: 10px;
+        display: block;
+
+    }
+    .btn-grad:hover{
+        background-position: right center;
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+    }
+    .gallerybox{
+        overflow-x: auto;
+        overflow-y: hidden;
+
+    }
+    .imgbox img{
+        width: 400px;
+        height: 200px;
+        margin-right: 5px;
+        border-radius: 20px;
+        border: 2px solid rgb(138, 138, 128);
+    }
+    .imgbox{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .codepen-button{
+        display: block;
+        cursor: pointer;
+        color: white;
+        margin: 0 auto;
+        position: relative;
+        text-decoration: none;
+        font-weight: 600;
+        border-radius: 6px;
+        overflow: hidden;
+        padding: 3px;
+        isolation: isolate;
+    }
+    .codepen-button::before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 400%;
+        height: 100%;
+        background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+        background-size: 25% 100%;
+        animation: .75s linear infinite;
+        animation-play-state: paused;
+        translate: -5% 0%;
+        transition: translate 0.25s ease-out;
+    }
+    .codepen-button:hover::before{
+        animation-play-state: running;
+        transition-duration: 0.75s;
+        translate: 0% 0%;
+    }
+    @keyframes an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-translation-so-it_s-not-a-jerk-of-a-start-or-stop{
+        to{
+            transform: translateX(-25%);
+        }
+    }
+    .codepen-button span{
+        position: relative;
+        display: block;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        background: #000;
+        border-radius: 3px;
+        height: 100%;
+    }
+    .shod{
+        text-align: center;
+    }
+    .seed{
+        padding-top: 0%;
+
+    }
+    .esm{
+        padding-bottom: 8px;
+    }
+    .animated.fadeInUp{
+        animation-name: fadeInUp;
+    }
+    @keyframes fadeInUp{
+        0%{
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100%{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .bin{
+        text-decoration: none;
+        color: white;
+    }
+    .nah{
+        border-radius: 50%;
+    }
+    @media screen and (min-width: 601px) {
+  p.matn {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 600px) {
+  p.matn {
+    font-size: 16px;
+  }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="avatar">
+                <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/148/original/logo.png?1730446559" width="100%"/>
+            </div>
+        </div>
+        <div>
+            <p class="the">the</p>
+            <h1 class="why"><span class="why-1">WHY</span><span class="why-2">FILES</span></h1>
+            <p class="the">Operation:podcast</p></tr><br/>
+        </div>
+    </header>
+    <man>
+        <section>
+            <div class="box reveal fade-bottom">
+                <div class="box reveal fade-left">
+                    <p class="matn"><span class="big">H</span>ave you ever heard of the Why Files? The Why Files covers mysteries, myths and legends. They tell stories ans seek the truthin a fun and lighthearted way. Thier content is heavily researched; They don't  release an episote unless they're sure they can bring something new to a topic. The Why Files is a channel for people who are fascinated(obsessed) with mysteries, and conspiracies. They tell stories, seek the truth, and have a few laughs along the way.</p>
+
+                </div>
+            </div>
+         </tr>
+        </section>
+        <section>
+            <div class="box reveal fade-bottom">
+                <div class="box reveal fade-right">
+                    <p class="matn"><span class="big">T</span>he host and creator (and writer and editor) of the Why Files, <strong>AJ(Andrew Gentile)</strong>, has a healthy skepticism. He's smart, well-spoken, and funny. He does his research, but he also seems to have grown up reading about and watching( and listening) to TV and radio shows about many of these topics.<br/>The genius of The Why Files is <strong>Hecklefish</strong>, a computer-animated goldfish who hovers in a goldfish bowl next to AJ in every video.</p>
+
+                </div>
+            </div>
+            <div class="box reveal fade-bottom">
+                <div class="box reveal fade-right">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/145/original/fish.jpg?1730446524"  class="mah  mx-auto d-block mt-2" width="40%">
+                </div>
+                <div class="box reveal fade-left">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/140/original/a.j.jpg?1730446441"  class="mah  mx-auto d-block mt-3" width="40%">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="box reveal fade-bottom">
+                <div class="box reveal fade-left">
+                    <p class="matn">
+                        <span class="big">T</span>he channel covers mainstream science, math, legends, history, technology, true crime, and the weird and curious world of what we tend to call "pseudoscience".Gentile's aproach is one of a skeptic who wants to believe in the cryptids, aliens, and other strange stories that often stir up controversy. While the topics may be mysterious and strange, Gentile pulls from history and science to present a full report, allowing the viewer to make up their own minds. 
+                    </p>
+                </div>
+            </div>
+            <div class="boxi">
+                <p class="boxi-1">Hecklefish is not a regular goldfish. Hecklefish is a result of a failed attempt by the Annunaki to clone the lizzard people with a human in their hollow moon base, and was sent to earth by the CIA under alien guidance to sow the seeds of disinformation.<br/><strong class="tir">-Trivia</strong> </p>
+            </div>
+            <div class="box reveal fade-bottom">
+                <div class="box reveal fade-left">
+                    <p class="matn">The Why Files is a history channel-viewers and listeners will learn facts like the CIA experimentiing on Americans without their consent with, among many, the MK-Ultra program("The CIA Murder that Exposed MK-Ultra:The Frank Olson Assassination"). Which leads to the quwstion, What is the CIA up to now? While the most popular ones are about UFOs and aliens(like"Alien War and the Horrors of Dulce underground base") there are more "straight" episodes , about math("Math Facts for Brain Muscles") and the possibility that the Welsh arrived in North America long before Columbus or the Vikings ("Legend of the Moon Eyed people: America's First Civilization"). The Why Files is smart, and makes their listeners feel smart for listening to them.</p>
+                </div>
+            </div>
+            <div class="gallerybox">
+                <div class="imgbox">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/141/original/anonaki.jpg?1730446454" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/142/original/biganeh.jpg?1730446468" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/143/original/domsday.jpg?1730446484" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/144/original/fire.jpg?1730446509" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/146/original/ilumin.jpg?1730446537" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/147/original/lal.jpg?1730446551" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/149/original/mesr.jpg?1730446570" width="50%">
+                    <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/149/150/original/moon.jpg?1730446585" width="50%">
+                    
+                </div>
+            </div>
+            <p id="test"></p>
+            <div id="test" class="btn-grad" onclick="showMessege();">Click here</div>
+            <hr color="black" size="4px">
+            <a class="codepen-button"><span class="shod">You can find the Why Files on:</span></a><br/>
+            <p class="seed">
+                <a class="bin" href="https://audioboom.com/channels/5117675.rss"> <i class="fa-solid fa-rss"></i> Rss FEED<br/></a>
+                <a class="bin" href="https://podcasts.apple.com/ch/podcast/the-why-files-operation-podcast/id1631738803"><i class="fa-brands fa-apple"></i>Apple podcasts<br/></a>
+                <a class="bin" href="https://www.spotify.com/"><i class="fa-brands fa-spotify"></i>Spotify<br/></a>
+                <a class="bin" href="https://www.audible.co.uk/podcast/The-Why-Files-Operation-Podcast/B0BR2SCTW7"><i class="fa-brands fa-audible"></i>Audible/Amazon<br/></a>
+                <a class="bin" href="https://www.youtube.com/thewhyfiles"><i class="fa-brands fa-youtube"></i>And of course you can visit their channel on YouTube</a>
+            </p> 
+            <hr color="black" size="4px">
+            <p class="esm">This site was coded by Mehrnaz Sadeghian</p>
+            
+        </section>
+    </man>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <script>
+        function reveal(){
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i ++){
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if(elementTop < windowHeight - elementVisible){
+                    reveals [i].classList.add("active");
+                }
+                else{
+                    reveals [i].classList.remove("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal,{passive:true});
+        function showMessege(){
+            let like = prompt("Hello! Would you like to have some fun?");
+            alert("Let's take this adventure with the Why Files and open new insights into the world of wonders!");
+
+            function Hi(){
+                if (like === no){
+                    alert("Hi" + "hope you enjoy this adventure with the Why files!");
+                }
+                else{
+                    alert("Let's take this adventure with the Why Files and open new insights into the world of wonders!");
+                }
+                document.getElementById("test").innerHTML = "Let's take this adventure with the Why Files and open new insights into the world of wonders!";
+            }
+        let contactbutton = document.querySelector("button");
+        contactbutton.addEventListener("click,Hi");
+        }
+    </script> 
+</body>
+</html>
